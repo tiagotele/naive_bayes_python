@@ -33,7 +33,7 @@ class ItemDeProbabilidade:
         self.no += 1
 
     def imprime(self):
-        print "Column: " + str(self.column_number) + "/" + self.item_name + "/" + str(self.yes) + "/" + str(self.no)
+        print ("Column: " + str(self.column_number) + "/" + self.item_name + "/" + str(self.yes) + "/" + str(self.no))
 
 classes_do_modelo = set([])
 def obtem_classes():
@@ -112,7 +112,7 @@ def monta_modelo_naive_bayes():
                                                                                  indice].no / global_no
 
 
-print "----------"
+print ("----------")
 
 # V total de elementos classificadores(yes, no, etc)
 total_v = 0.0
@@ -131,11 +131,11 @@ items_de_probabilidade = []
 modelo_naive_bayes = {}
 
 classes_do_modelo = obtem_classes()
-print "Classes = " + str(classes_do_modelo)
+print ("Classes = " + str(classes_do_modelo))
 
 # Calcula v e mostra v
 calcula_v()
-print "v = " + str(total_v) + " y = " + str(global_yes) + " n = " + str(global_no)
+print ("v = " + str(total_v) + " y = " + str(global_yes) + " n = " + str(global_no))
 
 obtem_itens_da_base_de_dados()
 '''for item in items_de_probabilidade:
@@ -143,7 +143,7 @@ obtem_itens_da_base_de_dados()
 
 # Monta modelo Naive Bayes
 monta_modelo_naive_bayes()
-print modelo_naive_bayes
+print (modelo_naive_bayes)
 
 # Lê teste de dados
 for linha in teste_de_dados:
@@ -155,6 +155,6 @@ for linha in teste_de_dados:
         probablidade_no *= modelo_naive_bayes[str(coluna)][list(classes_do_modelo)[1]]
 
 if probablidade_yes > probablidade_no:
-    print "Maior probabilidade de " + str(list(classes_do_modelo)[0])
+    print ("Maior probabilidade de " + str(list(classes_do_modelo)[0]))
 else:
-    print "Maior probabilidade de " + str(list(classes_do_modelo)[1])
+    print ("Maior probabilidade de " + str(list(classes_do_modelo)[1]))
